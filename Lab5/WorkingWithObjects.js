@@ -32,9 +32,19 @@ export default function WorkingWithObjects(app) {
     });
     app.get("/lab5/assignment/completed/:newStatus", (req, res) => {
         const { newStatus } = req.params;
-        assignment.completed = newStatus;
+        assignment.completed = newStatus === "true" ? true: false;
         res.json(assignment);
     });
+    app.get("/lab5/assignment/description/:newDescription", (req, res) => {
+        const { newDescription } = req.params;
+        assignment.description = newDescription;
+        res.json(assignment);
+    });
+    app.get("/lab5/assignment/date/:newDate", (req, res) => {
+        const { newDate } = req.params;
+        assignment.due = newDate;
+        res.json(assignment);
+    }); 
 
     app.get("/lab5/module", (req, res) => {
         res.json(module);
