@@ -22,7 +22,7 @@ export default function CourseRoutes(app) {
         res.send(courses);
     });
     app.post("/api/courses", (req, res) => {
-        const course = { ...req.body, _id: new Date().getTime().toString() };
+        const course = { ...req.body, _id: new Date().getTime().toString(), image: `/images/${randomImage()}` };
         Database.courses.push(course);
         res.send(course);
     });
