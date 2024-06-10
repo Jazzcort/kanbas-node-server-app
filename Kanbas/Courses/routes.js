@@ -1,4 +1,21 @@
 import Database from "../Database/index.js";
+const images = [
+    "algo.jpg",
+    "app.jpg",
+    "arrow.jpg",
+    "code.jpg",
+    "data.jpg",
+    "keyboard-tape.jpg",
+    "logic-board.jpg",
+    "robot.jpg",
+    "reactjs.jpg",
+];
+const randomImage = () => {
+    const ind = Math.floor(Math.random() * images.length);
+    return images[ind];
+};
+Database.courses = Database.courses.map((item) => ({...item, image: `/images/${randomImage()}`}))
+
 export default function CourseRoutes(app) {
     app.get("/api/courses", (req, res) => {
         const courses = Database.courses;
