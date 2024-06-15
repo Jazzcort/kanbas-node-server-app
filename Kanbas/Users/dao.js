@@ -2,7 +2,7 @@ import model from "./model.js";
 export const createUser = (user) => {
     delete user._id;
     return model.create(user);
-}; // implemented later
+};
 export const findAllUsers = () => model.find().lean();
 export const findUsersByRole = (role) => model.find({ role: role });
 export const findUsersByPartialName = (partialName) => {
